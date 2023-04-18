@@ -1,0 +1,31 @@
+<section class="section">
+  <app-header [title]="'Book'" [link]="'/books'" [btnText]="'Back'"></app-header>
+  <div class="section-inner">
+    <div class="row">
+      <div class="col-md-5 d-flex justify-content-center">
+        <img
+          src="https://images.pexels.com/photos/1105564/pexels-photo-1105564.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
+          alt="book" class="img-fluid img-book w-75">
+      </div> <!-- ./col -->
+
+      <div class="col-md-6 offset-md-1">
+        <div class="book-detail" *ngIf="book">
+          <h3>{{ book.title }}</h3>
+          <p class="my-4">{{ book.description }}</p>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item"><strong>Author:</strong> {{ book.authorFirstName }} {{ book.authorLastName }}
+            </li>
+            <li class="list-group-item"><strong>Genre:</strong> {{ book.genreName }}</li>
+            <li class="list-group-item"><strong>Language:</strong> {{ book.language }}</li>
+            <li class="list-group-item"><strong>Total Stock:</strong> {{ book.stock }}</li>
+            <li class="list-group-item"
+              [ngClass]="(book.available) > 0 ? 'list-group-item-success' : 'list-group-item-danger'">
+              <strong>Available:</strong> {{ book.available }}
+            </li>
+          </ul>
+          <a class="btn btn-primary my-5" [routerLink]="['/books/update-book', book.id]">Edit {{ book.title }}</a>
+        </div>
+      </div> <!-- ./col -->
+    </div>
+  </div>
+</section>

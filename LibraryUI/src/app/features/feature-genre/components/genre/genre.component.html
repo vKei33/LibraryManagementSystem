@@ -1,0 +1,28 @@
+<section class="section">
+  <app-header [title]="'Genres'" [link]="'/genres/create-genre'" [btnText]="'New Genre'"></app-header>
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider align-middle" *ngIf="genres">
+          <tr *ngFor="let genre of genres; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ genre.name }}</td>
+            <td class="d-flex align-items-center">
+              <a class="btn btn-primary me-1" [routerLink]="['/genres/update-genre', genre.id]"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
+              <button class="btn btn-danger" (click)="delete(genre.id, genre.name)"><i
+                  class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- ./col -->
+  </div>
+</section>

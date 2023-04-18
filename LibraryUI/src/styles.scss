@@ -1,0 +1,13 @@
+/* You can add global styles to this file, and also import other style files */
+@import '/src/app/features/feature-book/components/create-book/create-book.component.scss';
+@import '/src/app/features/feature-book/components/book-detail/book-detail.component.scss';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

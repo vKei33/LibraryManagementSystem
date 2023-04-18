@@ -1,0 +1,28 @@
+<section class="section">
+  <app-header [title]="'Publishers'" [link]="'/publishers/create-publisher'" [btnText]="'New Publisher'"></app-header>
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Publisher</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider align-middle" *ngIf="publishers">
+          <tr *ngFor="let publisher of publishers; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ publisher.name }}</td>
+            <td class="d-flex align-items-center">
+              <a class="btn btn-primary me-1" [routerLink]="['/publishers/update-publisher', publisher.id]"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
+              <button class="btn btn-danger" (click)="delete(publisher.id, publisher.name)"><i
+                  class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- ./col -->
+  </div>
+</section>

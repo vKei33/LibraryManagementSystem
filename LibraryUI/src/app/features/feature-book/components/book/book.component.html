@@ -1,0 +1,38 @@
+<section class="section">
+  <app-header [title]="'Books'" [link]="'/books/create-book'" [btnText]="'New Book'"></app-header>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Title</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Available</th>
+            <th scope="col">Language</th>
+            <th scope="col">Genre</th>
+            <th scope="col">Author</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider align-middle" *ngIf="books">
+          <tr *ngFor="let book of books; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td><a [routerLink]="['/books/detail/', book.id]">{{ book.title }}</a></td>
+            <td>{{ book.stock }}</td>
+            <td>{{ book.available }}</td>
+            <td>{{ book.language }}</td>
+            <td>{{ book.genreName }}</td>
+            <td>{{ book.authorFirstName }} {{ book.authorLastName }}</td>
+            <td class="d-flex align-items-center">
+              <a class="btn btn-primary me-1" [routerLink]="['/books/update-book', book.id]"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
+              <button class="btn btn-danger" (click)="delete(book.id, book.title)"><i
+                  class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- ./col -->
+  </div>
+</section>

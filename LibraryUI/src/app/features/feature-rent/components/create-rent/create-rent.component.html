@@ -1,0 +1,46 @@
+<section class="section">
+  <app-header [title]="'New Rent'" [link]="'/rents'" [btnText]="'Back'"></app-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+
+        <div class="my-3">
+          <label for="book" class="form-label">Select Book</label>
+          <select class="form-select" aria-label="Default select example" id="book" formControlName="bookId"
+            *ngIf="books">
+            <option value="">- Empty -</option>
+            <option *ngFor="let book of books" [value]="book.id">{{ book.title }}</option>
+          </select>
+        </div>
+
+        <div class="my-3">
+          <label for="member" class="form-label">Select Member</label>
+          <select class="form-select" aria-label="Default select example" id="member" formControlName="memberId"
+            *ngIf="members">
+            <!-- <option value="">- Empty -</option> -->
+            <option *ngFor="let member of members" [value]="member.id">{{ member.firstName }} {{ member.lastName }}
+            </option>
+          </select>
+        </div>
+
+        <div class="my-3">
+          <label for="firstName" class="form-label">First Name</label>
+          <input type="text" id="firstName" class="form-control" formControlName="firstName">
+        </div>
+
+        <div class="my-3">
+          <label for="lastName" class="form-label">Last Name</label>
+          <input type="text" id="lastName" class="form-control" formControlName="lastName">
+        </div>
+
+        <div class="my-3">
+          <label for="phoneNumber" class="form-label">Phone</label>
+          <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber"
+            placeholder="070/345-324">
+        </div>
+
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>

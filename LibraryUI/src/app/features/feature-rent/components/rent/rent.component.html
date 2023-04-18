@@ -1,0 +1,39 @@
+<section class="section">
+  <app-header [title]="'Rented Books'" [link]="'/rents/create-rent'" [btnText]="'New Rent'"></app-header>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Book</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Rented Date</th>
+            <th scope="col">Return Date</th>
+            <th scope="col">Returned</th>
+            <th scope="col">Member</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider align-middle" *ngIf="rents">
+          <tr *ngFor="let rent of rents; let i = index" [ngClass]="{'text-info-emphasis': rent.isReturned}">
+            <td>{{ i + 1 }}</td>
+            <td>{{ rent.bookTitle }}</td>
+            <td>{{ rent.firstName }} {{ rent.lastName }}</td>
+            <td>{{ rent.phoneNumber }}</td>
+            <td>{{ rent.rentalDate | date: 'dd-MMMM yyyy' }}</td>
+            <td>{{ rent.returnDate | date: 'dd-MMMM yyyy' }}</td>
+            <td>{{ rent.isReturned == true ? 'Yes' : 'No' }}</td>
+            <td>{{ rent.memberId != null ? 'Member' : 'No' }}</td>
+            <td class="d-flex align-items-center">
+              <a class="btn btn-primary me-1" [routerLink]="['/rents/update-rent', rent.id]"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
+              <button class="btn btn-danger" (click)="delete(rent.id, rent.bookTitle)"><i class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- ./col -->
+  </div>
+</section>

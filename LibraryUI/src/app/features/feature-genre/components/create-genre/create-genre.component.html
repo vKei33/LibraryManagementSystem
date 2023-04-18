@@ -1,0 +1,14 @@
+<section class="section">
+  <app-header [title]="'New Genre'" [link]="'/genres'" [btnText]="'Back'"></app-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="my-3">
+          <label for="Name" class="form-label">Name</label>
+          <input type="text" id="Name" class="form-control" formControlName="name">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>

@@ -1,0 +1,34 @@
+<section class="section">
+  <app-header [title]="'Members'" [link]="'/members/create-member'" [btnText]="'New Member'"></app-header>
+  <div class="row">
+    <div class="col-md-12">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Full Name</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Registration Date</th>
+            <th scope="col">Expiration Date</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider align-middle" *ngIf="members">
+          <tr *ngFor="let member of members; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ member.firstName }} {{ member.lastName }}</td>
+            <td>{{ member.phoneNumber }}</td>
+            <td>{{ member.membershipStartDate | date: 'dd-MMMM yyyy' }}</td>
+            <td>{{ member.membershipExpirationDate | date: 'dd-MMMM yyyy' }}</td>
+            <td class="d-flex align-items-center">
+              <a class="btn btn-primary me-1" [routerLink]="['/members/update-member', member.id]"><i
+                  class="fa-solid fa-pen-to-square"></i></a>
+              <button class="btn btn-danger" (click)="delete(member.id, member.firstName + ' ' + member.lastName)"><i
+                  class="fa-solid fa-trash"></i></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div> <!-- ./col -->
+  </div>
+</section>

@@ -1,0 +1,18 @@
+<section class="section">
+  <app-header [title]="'Update Author'" [link]="'/authors'" [btnText]="'Back'"></app-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="my-3">
+          <label for="FirstName" class="form-label">First Name</label>
+          <input type="text" id="FirstName" class="form-control" formControlName="firstName">
+        </div>
+        <div class="my-3">
+          <label for="LastName" class="form-label">Last Name</label>
+          <input type="text" id="LastName" class="form-control" formControlName="lastName">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>

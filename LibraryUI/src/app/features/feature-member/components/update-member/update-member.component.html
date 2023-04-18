@@ -1,0 +1,27 @@
+<section class="section">
+  <app-header [title]="'Update Member'" [link]="'/members'" [btnText]="'Back'"></app-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+        <div class="my-3">
+          <label for="FirstName" class="form-label">First Name</label>
+          <input type="text" id="FirstName" class="form-control" formControlName="firstName">
+        </div>
+        <div class="my-3">
+          <label for="LastName" class="form-label">Last Name</label>
+          <input type="text" id="LastName" class="form-control" formControlName="lastName">
+        </div>
+        <div class="my-3">
+          <label for="PhoneNumber" class="form-label">Phone</label>
+          <input type="text" id="PhoneNumber" class="form-control" formControlName="phoneNumber"
+            placeholder="070/345-324">
+        </div>
+        <div class="my-3">
+          <label for="MembershipStartDate" class="form-label">Membership Registration</label>
+          <input type="date" id="MembershipStartDate" class="form-control" formControlName="membershipStartDate">
+        </div>
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>

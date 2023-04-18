@@ -1,0 +1,23 @@
+<section class="section">
+  <app-header [title]="'Update Rent'" [link]="'/rents'" [btnText]="'Back'"></app-header>
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="row">
+      <div class="col-sm-12 col-md-6">
+
+        <div *ngIf="rentDetail">
+          <h5>Rented By: {{ rentDetail.firstName }} {{ rentDetail.lastName }}</h5>
+        </div>
+
+        <div class="my-3">
+          <label for="isReturned" class="form-label">Select</label>
+          <select class="form-select" aria-label="Default select example" id="isReturned" formControlName="isReturned">
+            <option [ngValue]="true">Returned</option>
+            <option [ngValue]="false">Not Returned</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-outline-success">Submit</button>
+      </div>
+    </div>
+  </form>
+</section>
